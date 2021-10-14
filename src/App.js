@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import CreateRecipe from "./Routes/CreateRecipe";
+import FoodReci from "./Routes/FoodReci";
+import Home from "./Routes/Home";
+import Login from "./Routes/Login";
+import MyProfile from "./Routes/MyProfile";
+import Profile from "./Routes/Profile";
+import ProfilesList from "./Routes/ProfilesList";
+import ProtectedRoute from "./Routes/ProtectedRoute";
+import Recipe from "./Routes/Recipe";
+import SignUp from "./Routes/SignUp";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login}/>
+        <Route path="/signup" component={SignUp}/>
+        <ProtectedRoute path="/food-reci" component={FoodReci}/>
+        <ProtectedRoute path="/recipe/:id" component={Recipe}/>
+        <ProtectedRoute path="/create-recipe" component={CreateRecipe}/>
+        <ProtectedRoute path="/myprofile" component={MyProfile}/>
+        <ProtectedRoute path="/profile/:username" component={Profile}/>
+        <ProtectedRoute path="/profiles" component={ProfilesList}/>
+        <Route path="/" component={Home}/>
+      </Switch>
+    </Router>
   );
 }
 
