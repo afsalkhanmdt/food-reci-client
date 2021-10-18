@@ -35,12 +35,14 @@ const Login = ({history}) => {
     }
     
     return (
+        <div className="banner-login">
+            <div className="card-login">
         <div className="login-section">
-            <h1>Login</h1>
+            <h3>Login</h3>
             <form onSubmit={login_call}>
                 <div className="form-field">
-                    <label>User Name</label>
-                    <input type="text"
+                   
+                    <input type="text" className="inputbox"
                         placeholder="User Name"
                         value={userName}
                         onChange={e => {setUserName(e.target.value)}}
@@ -48,22 +50,24 @@ const Login = ({history}) => {
                 </div>
 
                 <div className="form-field">
-                    <label>Password</label>
+                    
                     <input
-                        type="password"
+                        type="password"className="inputbox"
                         placeholder="Password" 
                         value={password}
                         onChange={e => {setPassword(e.target.value)}}
                     />
                 </div>
                 <div className="form-error-text">{errorText}</div>
-                <button type="submit">Login</button>
+                <button type="submit" className="submit-btn">Login</button>
             </form>
             <div onClick={()=>{setFogotPasswordScreenVisiblity(true)}}>Forgot Password?</div>
             {fogotPasswordScreenVisiblity
             && <ForgotPassword setFogotPasswordScreenVisiblity={setFogotPasswordScreenVisiblity}/>
             }
             
+        </div>
+        </div>
         </div>
     )
 }

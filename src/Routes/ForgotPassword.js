@@ -13,11 +13,13 @@ const ForgotPassword = ({setFogotPasswordScreenVisiblity})=>{
     }
     return(
         <div>
-            <h1>Forgot Password</h1>
+             <div className="banner-forgotpassword">
+            <div className="card-forgotpassword">
+            <h4>Forgot Password</h4>
             <form onSubmit={submitForgotPasswordForm}>
                 <div className="form-field">
-                    <label>Email</label>
-                    <input type="text"
+                   
+                    <input type="text" className="emailbox"
                         placeholder="Email"
                         value={email}
                         onChange={e => {setEmail(e.target.value)}}
@@ -26,7 +28,9 @@ const ForgotPassword = ({setFogotPasswordScreenVisiblity})=>{
                 <div className="form-error-text">{errorText}</div>
                 <button type="submit">Send Otp</button>
             </form>
-            <div onClick={()=>{setFogotPasswordScreenVisiblity(false)}}>close</div>
+            <div onClick={()=>{setFogotPasswordScreenVisiblity(false)}}><h5>close</h5></div>
+        </div>
+        </div>
         </div>
     )
 }
