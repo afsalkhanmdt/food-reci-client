@@ -73,7 +73,7 @@ const SignUp = ({history}) => {
             <form onSubmit={signup_call}>
 
                 <div className="formfield">
-                   
+                  
                     <input type="text" className="input-box"
                         placeholder="Name"
                         value={name}
@@ -85,7 +85,7 @@ const SignUp = ({history}) => {
                 </div>
 
                 <div className="formfield">
-                    
+                   
                     <input type="text"className="input-box"
                         placeholder="User Name"
                         value={userName}
@@ -97,6 +97,7 @@ const SignUp = ({history}) => {
                 </div>
 
                 <div className="formfield">
+                   
                         <input type="text"className="input-box"
                         placeholder="Email"
                         value={email}
@@ -108,7 +109,7 @@ const SignUp = ({history}) => {
                 </div>
 
                 <div className="formfield">
-                   
+                    
                     <input type="text"className="input-box"
                         placeholder="Phone"
                         value={phone}
@@ -120,6 +121,7 @@ const SignUp = ({history}) => {
                 </div>
 
                 <div className="formfield">
+                    
                    
                     <input
                         type="password"className="input-box"
@@ -133,6 +135,7 @@ const SignUp = ({history}) => {
                 </div>
 
                 <div className="formfield">
+                    
                    
                     <input
                         type="password"className="input-box"
@@ -149,7 +152,7 @@ const SignUp = ({history}) => {
 
 
                 <div className="form-error-text">{errorText}</div>
-                <button type="submit">Sign Up</button>
+                <button type="submit"className="login-btn">Sign Up</button>
             </form>           
             {otpScreenVisibility && <OtpWindow phone={phone}/>}
         </div>
@@ -178,18 +181,22 @@ const OtpWindow = ({phone})=>{
     }
 
     return(
-        <div>
-            <h1>OTP</h1>
+         <div className="banner-otp">
+        <div className="card-otp">
+            <h8>OTP</h8>
             <form onSubmit={submit_otp}>
+                <label>Otp</label>
                 <input
                 value={otp}
-                type="text"
+                type="text"className="otp"
                 onChange={(e)=>{
                     setOtp(e.target.value)
                 }}/>
-                <button type="submit">Submit</button>
+                
+                <button type="submit"className="otpbtn">Submit</button>
                 <div className="form-error-text">{errorText}</div>
             </form>
+            </div>
         </div>
     )
 }

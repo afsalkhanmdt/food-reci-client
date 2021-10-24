@@ -13,6 +13,7 @@ import ProfilesList from "./Routes/ProfilesList";
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import Recipe from "./Routes/Recipe";
 import SignUp from "./Routes/SignUp";
+import PasswordReset from "./Routes/PasswordReset";
 
 const App = () => {
   return (

@@ -1,4 +1,4 @@
-const Home = ()=>{
+const Home = ({history})=>{
    
     return(
     
@@ -15,8 +15,8 @@ const Home = ()=>{
      <div className="content">
        
      
-      <button type="button" className="login-btn">Login</button>
-      <button type="button" className="signup-btn">SignUp</button>
+      <button onClick={()=>{history.push("/login")}}type="button" className="login-btn">Login</button>
+      <button onClick={()=>{history.push("/signup")}}type="button" className="login-btn">SignUp</button>
    </div>
    </div>
    </div>

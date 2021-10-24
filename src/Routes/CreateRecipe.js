@@ -50,51 +50,60 @@ const CreateRecipe = () => {
     }
 
     return (
-        <div className="login-section">
+        <div className="banner-recipe">
+        <div className="card-recipe">
+
+        <div className="recipe-section">
             <h1>Create Recipe</h1>
             <form onSubmit={save_recipe}>
-                <div className="form-field">
-                    <label>Recipe Name</label>
-                    <input type="text"
+                    
+                <div className="form_fielld">
+                    
+                    <input type="text" className="createinput"
                         placeholder="Recipe Name"
                         value={name}
                         onChange={e => {onChange("name",e.target.value)}}
                     />
                 </div>
-                <div className="form-field">
-                    <label>Catogory</label>
+                <div className="form_fielld">
+                   
                     <select
-                    value={catogory}
+                    value={catogory} className="createinput"
                     onChange={e => {onChange("catogory",e.target.value)}}
                     >
-                        <option value="">Select Category</option>
+                        <option value="">Select Category </option>
                         {catogoryList.map((value,i)=>(
                             <option key={i} value={value.name}>{value.name}</option>
                         ))}
                     </select>
                 </div>
-                <div className="form-field">
-                    <label>Incredians</label>
-                    <textarea                    
-                    value={incredians}
+                <div className="form_fielld">
+                    
+                    <textarea                  
+                    value={incredians}className="createinput"
                     onChange={e => {onChange("incredians",e.target.value)}}
                     />
                 </div>
-                <div className="form-field">
-                    <label>Description</label>
+                <div className="form_fielld">
+                    
                     <textarea                    
-                    value={description}
+                    value={description}className="createinput"
                     onChange={e => {onChange("description",e.target.value)}}
                     />
                 </div>
-                <div className="form-field">
-                    <label>Image</label>
-                    <input type="file" onChange={e => {
+                <div className="form_fielld">
+                    
+                    <input type="file" className="createinput"
+                    onChange={e => {
                         setFile(e.target.files[0])
                     }}/>
                 </div>
-                <button type="submit">Save</button>
+                <button type="submit" className="btn-save">Save</button>
+           
             </form>
+            
+        </div>
+        </div>
         </div>
     )
 }
