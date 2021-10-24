@@ -1,32 +1,30 @@
-import { useState } from "react";
-
-const Home = ()=>{
-  const[todos,setTodos] = useState([]);
-  const [task,setTask] = useState("");
-    
-  const addTodos = (e)=>{
-    e.preventDefault();
-    setTodos(prev=>[...prev,task]);
-    setTask("");
-  }
+const Home = ({history})=>{
+   
     return(
-      <>
-      <h1>
-        Home
-      </h1>
-      <div>
-        {todos.map(todos =><div>{todos}</div>)}
-      </div>
-      <form onSubmit={addTodos}>
-        <input type="text"
-        value={task}
-        onChange={e => {setTask(e.target.value)}}
-        />
-        <button>Add</button>
-      </form>
-      
-      </>
+    
+      <div className="banner-home">
+        <div className="card">
+        
+<div className="heading">
+          <h1>Welcome to </h1>
+        
+          
+            <h2>FoodReci</h2>
+          </div>
+         
+     <div className="content">
+       
+     
+      <button onClick={()=>{history.push("/login")}}type="button" className="login-btn">Login</button>
+      <button onClick={()=>{history.push("/signup")}}type="button" className="login-btn">SignUp</button>
+   </div>
+   </div>
+   </div>
+  
+    
     )
-}
+  }
+ 
+  
 
 export default Home;

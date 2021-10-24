@@ -21,22 +21,33 @@ const FoodReci = ({history}) => {
 
     return (
         <>
-            <div>
-                Food Reci of
-            </div>
-            <div>
+           
+            <div className="banner-reci">
+        <div className="card-reci">
                 {foodRecipeList.map((recipe,i)=>(
                     <div key={i}>
-                        <div>{recipe.name}</div>
-                        <div>{recipe.description}</div>
+                        <div className="name">{recipe.name}
+                        <div className="form-field">
+                    
+                    <input
+                        type="name"className="inputbox"
+                        placeholder="Name" 
+                        value={name}
+                        onChange={e => {setname(e.target.value)}}
+                    />
+                </div>
+                        </div>
+                        <div className="description">{recipe.description}
+                        
+                </div>
+                        
                     </div>
                 ))}
-            </div>
+            
             <button onClick={logOut}>Logout</button>
-            <button onClick={()=>{
-                setClicker(clicker+1);
-                console.log(clicker)
-            }}>Click</button>
+            
+           </div>
+           </div>
         </>
     )
 }

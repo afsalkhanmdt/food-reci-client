@@ -12,15 +12,17 @@ const SubmitOTP = () => {
         }
     }
     return(
-        <div>
+        <div className="banner-otpp">
+        <div className="card-otpp">
             <form onSubmit={submitOTPForm}>
-                <div className="form-field">
+                <div className="formmfield">
                     <label>OTP</label>
-                    <input type="number" placeholder="Enter OTP" value={otp} onChange={e => {setOtp(e.target.value)}} />
+                    <input type="number"className="otpp-box"placeholder="Enter OTP" value={otp} onChange={e => {setOtp(e.target.value)}} />
                 </div>
                 <button type="submit">Verify OTP</button>
             </form>
             <div className="form-error-text">{errorText}</div>
+        </div>
         </div>
     )
 }

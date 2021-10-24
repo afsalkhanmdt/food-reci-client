@@ -66,13 +66,15 @@ const SignUp = ({history}) => {
     }
 
     return (
-        <div className="login-section">
-            <h1>Sign Up</h1>
+        <div className="banner-signup">
+            <div className="card-signup">
+        <div className="ssignup-section">
+            <h6>Sign Up</h6>
             <form onSubmit={signup_call}>
 
-                <div className="form-field">
-                    <label>Name</label>
-                    <input type="text"
+                <div className="formfield">
+                  
+                    <input type="text" className="input-box"
                         placeholder="Name"
                         value={name}
                         onChange={e => {
@@ -82,9 +84,9 @@ const SignUp = ({history}) => {
                     />
                 </div>
 
-                <div className="form-field">
-                    <label>User Name</label>
-                    <input type="text"
+                <div className="formfield">
+                   
+                    <input type="text"className="input-box"
                         placeholder="User Name"
                         value={userName}
                         onChange={e => {
@@ -94,9 +96,9 @@ const SignUp = ({history}) => {
                     />
                 </div>
 
-                <div className="form-field">
-                    <label>Email</label>
-                    <input type="text"
+                <div className="formfield">
+                   
+                        <input type="text"className="input-box"
                         placeholder="Email"
                         value={email}
                         onChange={e => {
@@ -106,9 +108,9 @@ const SignUp = ({history}) => {
                     />
                 </div>
 
-                <div className="form-field">
-                    <label>Phone</label>
-                    <input type="text"
+                <div className="formfield">
+                    
+                    <input type="text"className="input-box"
                         placeholder="Phone"
                         value={phone}
                         onChange={e => {
@@ -118,10 +120,11 @@ const SignUp = ({history}) => {
                     />
                 </div>
 
-                <div className="form-field">
-                    <label>Password</label>
+                <div className="formfield">
+                    
+                   
                     <input
-                        type="password"
+                        type="password"className="input-box"
                         placeholder="Password" 
                         value={password}
                         onChange={e => {
@@ -131,10 +134,11 @@ const SignUp = ({history}) => {
                     />
                 </div>
 
-                <div className="form-field">
-                    <label>Confirm Password</label>
+                <div className="formfield">
+                    
+                   
                     <input
-                        type="password"
+                        type="password"className="input-box"
                         placeholder="Confirm Password" 
                         value={confirmPassword}
                         onChange={e => {
@@ -148,9 +152,11 @@ const SignUp = ({history}) => {
 
 
                 <div className="form-error-text">{errorText}</div>
-                <button type="submit">Sign Up</button>
+                <button type="submit"className="login-btn">Sign Up</button>
             </form>           
             {otpScreenVisibility && <OtpWindow phone={phone}/>}
+        </div>
+        </div>
         </div>
     )
 }
@@ -175,18 +181,22 @@ const OtpWindow = ({phone})=>{
     }
 
     return(
-        <div>
-            <h1>OTP</h1>
+         <div className="banner-otp">
+        <div className="card-otp">
+            <h8>OTP</h8>
             <form onSubmit={submit_otp}>
+                <label>Otp</label>
                 <input
                 value={otp}
-                type="text"
+                type="text"className="otp"
                 onChange={(e)=>{
                     setOtp(e.target.value)
                 }}/>
-                <button type="submit">Submit</button>
+                
+                <button type="submit"className="otpbtn">Submit</button>
                 <div className="form-error-text">{errorText}</div>
             </form>
+            </div>
         </div>
     )
 }
