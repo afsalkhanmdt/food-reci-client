@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const FoodReci = ({history}) => {
     const [foodRecipeList,setFoodRecipeList] = useState([]);
-    const [clicker,setClicker] = useState(0);
 
     useEffect(()=>{
         fetch("http://localhost:5000/api/v1/recipe-list")
@@ -11,7 +10,7 @@ const FoodReci = ({history}) => {
             setFoodRecipeList(result);
         });
     },
-    [clicker]);
+    []);
 
 
     const logOut = () =>{
@@ -29,12 +28,12 @@ const FoodReci = ({history}) => {
                         <div className="name">{recipe.name}
                         <div className="form-field">
                     
-                    <input
+                    {/* <input
                         type="name"className="inputbox"
                         placeholder="Name" 
                         value={name}
                         onChange={e => {setname(e.target.value)}}
-                    />
+                    /> */}
                 </div>
                         </div>
                         <div className="description">{recipe.description}

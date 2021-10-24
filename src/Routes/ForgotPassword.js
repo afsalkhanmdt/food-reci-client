@@ -1,22 +1,30 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
 import postData from "../Services/postData";
 
 
 const ForgotPassword = ({setFogotPasswordScreenVisiblity})=>{
     const[phone,setPhone] = useState("");
+    const[otpWindowVisiblity,setOtpWindowVisiblity] = useState(false);
     
     const[errorText,setErrorText] = useState("");
     const submitForgotPasswordForm = (e)=>{
         e.preventDefault();
         setErrorText("");
-        postData("/forgotpassword",{phone})
         if(!phone){
             setErrorText("Email is required!");
             return;
         }
+        postData("/forgotpassword",{phone}).then(responce=>{
+            if(responce.status){
+                setOtpWindowVisiblity(true);
+            }
+        })
+        
     }
 
     return(
+        <>
         <div>
              <div className="banner-forgotpassword">
             <div className="card-forgotpassword">
@@ -37,10 +45,15 @@ const ForgotPassword = ({setFogotPasswordScreenVisiblity})=>{
         </div>
         </div>
         </div>
+        {otpWindowVisiblity && <OtpWindow phone={phone}/>}
+        </>
     )
 }
+
+
 const OtpWindow = ({phone})=>{
     const history = useHistory();
+    const[resetPasswordWindowVisiblity,setResetPasswordWindowVisiblity] = useState(false);
     const [otp, setOtp] = useState("");
     const[errorText,setErrorText] = useState("");
     const submit_otp = (e)=>{
@@ -52,15 +65,20 @@ const OtpWindow = ({phone})=>{
                 setErrorText(responce.data);
                 return;
             }
-            history.push("/login");
+            if(responce.status){
+                localStorage.setItem("token",responce.token);
+                setResetPasswordWindowVisiblity(true);
+            }
+            //history.push("/login");
         })
 
     }
 
     return(
+        <>
          <div className="banner-otp">
         <div className="card-otp">
-            <h8>OTP</h8>
+            <h1>OTP</h1>
             <form onSubmit={submit_otp}>
                 <label>Otp</label>
                 <input
@@ -75,8 +93,20 @@ const OtpWindow = ({phone})=>{
             </form>
             </div>
         </div>
+        {resetPasswordWindowVisiblity && <ResetPasswordWindow/>}
+        </>
     )
 }
+
+const ResetPasswordWindow = ()=>{
+    return(
+        <div>
+            ResetPasswordWindow
+        </div>
+    )
+}
+
+
 
 
 
